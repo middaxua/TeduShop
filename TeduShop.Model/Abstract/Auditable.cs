@@ -3,18 +3,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TeduShop.Model.Abstract
 {
-    public class Auditable : IAuditable
+    public abstract class Auditable : IAuditable
     {
-        public DateTime? CreatedDate { get; set; }
-        [MaxLength(255)]
-        public string CreatedBy { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        [MaxLength(255)]
-        public string UpdatedBy { get; set; }
-        [MaxLength(255)]
-        public string MetaKeyWord { get; set; }
-        [MaxLength(255)]
-        public string MetaDescription { get; set; }
-        public bool Status { get; set; }
+        public DateTime? CreatedDate { set; get; }
+        [MaxLength(256)]
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        [MaxLength(256)]
+        public string UpdatedBy { set; get; }
+        [MaxLength(256)]
+        public string MetaKeyword { set; get; }
+        [MaxLength(256)]
+        public string MetaDescription { set; get; }
+        public bool Status { set; get; }
     }
 }
