@@ -14,11 +14,11 @@ namespace TeduShop.Model.Models
         public string URL { get; set; }
         public int? DisplayOrder { get; set; }
         [Required]
-        [ForeignKey("GroupID")]
         public int GroupID { get; set; }
-        public virtual MenuGroup MenuGroup { get; set; }
         public string Target { get; set; }
         [Required]
         public bool Status { get; set; }
+        [ForeignKey("GroupID")]
+        public virtual MenuGroup MenuGroup { get; set; }
     }
 }
