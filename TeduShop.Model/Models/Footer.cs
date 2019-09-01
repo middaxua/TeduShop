@@ -8,6 +8,7 @@ namespace TeduShop.Model.Models
     {
         [Key]
         public string ID { get; set; }
+
         [Required]
         public string Content { get; set; }
     }

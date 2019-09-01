@@ -13,6 +13,7 @@ namespace TeduShop.Web.Infrastructure.Core
     public class ApiControllerBase : ApiController
     {
         private IErrorService _errorService;
+
         public ApiControllerBase(IErrorService errorService)
         {
             this._errorService = errorService;
@@ -25,7 +26,7 @@ namespace TeduShop.Web.Infrastructure.Core
             {
                 response = function.Invoke();
             }
-            catch(DbEntityValidationException ex)
+            catch (DbEntityValidationException ex)
             {
                 foreach (var eve in ex.EntityValidationErrors)
                 {
@@ -38,7 +39,7 @@ namespace TeduShop.Web.Infrastructure.Core
                 LogError(ex);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
-            catch(DbUpdateException dbEx)
+            catch (DbUpdateException dbEx)
             {
                 LogError(dbEx);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, dbEx.InnerException.Message);
@@ -64,7 +65,6 @@ namespace TeduShop.Web.Infrastructure.Core
             }
             catch (System.Exception)
             {
-
             }
         }
     }
